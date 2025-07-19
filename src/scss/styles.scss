@@ -1,0 +1,122 @@
+// ===== Variables =====
+$bg-color: #b6b6fd;
+$bg-container-color: #f0f0f0;
+$primary-color: #039b26;
+$primary-color-hover: #028a1f;
+$secondary-color: #dc3545;
+$font-family: "Arial", sans-serif;
+$border-radius: 5px;
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// ===== Base Styles =====
+body {
+  font-family: $font-family;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+// ===== Container =====
+.container {
+  background-color: $bg-container-color;
+  padding: 2rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  width: 400px;
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+// ===== Task Input =====
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+#new-task {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  font-size: 16px;
+}
+
+#add-task {
+  padding: 10px 20px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
+}
+
+// ===== Task List =====
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: $border-radius;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+
+    &.completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    button {
+      background-color: $secondary-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+// ===== Responsive Styles =====
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .input-container {
+    flex-direction: column;
+
+    #new-task {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  #add-task {
+    width: 100%;
+  }
+}
